@@ -5,13 +5,13 @@ longtitle:        seonggi Gitbook
 author:           Seong Gi
 email:            sgchoi1547@gmail.com
 description: >
-  Build Jekyll site with the GitBook style.
+ SeongGi GitBook.
 
 version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://seonggi.github.io'
-baseurl:          '/jekyll-gitbook'
+baseurl:          'https://seonggi.github.io'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
