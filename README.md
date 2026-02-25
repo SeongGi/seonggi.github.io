@@ -1,206 +1,165 @@
+# seonggi.github.io 블로그 사용법
+
+이 저장소는 Jekyll GitBook 테마 기반의 GitHub Pages 블로그입니다.
+글은 마크다운(.md) 파일을 `_posts/` 폴더에 넣고 git push 하면 자동으로 사이트에 반영됩니다.
+
+사이트 주소: https://seonggi.github.io
+
 ---
-layout: home
-title: Jekyll Gitbook Theme
-permalink: /
+
+## 글 쓰는 법
+
+### 1단계: 마크다운 파일 만들기
+
+`_posts/` 폴더 안에 아래 규칙에 맞는 파일을 만듭니다.
+
+파일 이름 규칙:
+```
+YYYY-MM-DD-영문제목.md
+```
+
+예시:
+```
+2026-02-25-keycloak-install.md
+2026-03-01-gcp-cloud-run.md
+```
+
+### 2단계: 글 맨 위에 front matter 작성
+
+파일 맨 위에 아래와 같이 `---`로 감싼 설정 블록을 넣어야 합니다.
+이게 없으면 Jekyll이 글로 인식하지 못합니다.
+
+```yaml
 ---
-
-Make Jelly site have a GitBook look!
-
-## Demo
-
-Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
-
-[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
-
-## Why Jekyll with GitBook
-
-GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
-is building HTML files locally and then push to Github repository, usually to the `gh-pages`
-branch. It's quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.
-
-This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to [Github Pages][1] without generating and uploading HTML bundle every time when there are
-changes to the original repo.
-
-## How to Get Started
-
-This theme can be used just as other [Jekyll themes][1] and support [remote theme][12],
-see [the official guide][13] as well.
-
-You can introduce this jekyll theme into your own site by either
-
-- [Fork][3] this repository and add your markdown posts to the `_posts` folder.
-- Use as a remote theme in your [`_config.yml`][14](just like what we do for this
-  site itself),
-
-```yaml
-remote_theme: sighingnow/jekyll-gitbook
+title: 여기에 글 제목을 한글로 적으세요
+author: Seong Gi
+date: 2026-02-25
+category: GCP
+layout: post
+---
 ```
 
-### Deploy Locally with Jekyll Serve
+각 항목 설명:
+- title: 사이드바와 페이지에 표시될 글 제목
+- author: 작성자 이름
+- date: 작성 날짜 (YYYY-MM-DD)
+- category: 사이드바 대분류 그룹 (아래 참고)
+- layout: 항상 `post` 로 고정
 
-This theme can be ran locally using Ruby and Gemfiles.
+### 3단계: 본문 작성
 
-[Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) - GitHub
-
-## Full-text search
-
-The search functionality in jekyll-gitbook theme is powered by the [gitbook-plugin-search-pro][5] plugin and is enabled by default.
-
-[https://sighingnow.github.io/jekyll-gitbook/?q=generated](https://sighingnow.github.io/jekyll-gitbook/?q=generated)
-
-## Code highlight
-
-The code highlight style is configurable the following entry in `_config.yaml`:
-
-```yaml
-syntax_highlighter_style: colorful
-```
-
-The default code highlight style is `colorful`, the full supported styles can be found from [the rouge repository][6]. Customized
-style can be added to [./assets/gitbook/rouge/](./assets/gitbook/rouge/).
-
-## How to generate TOC
-
-The jekyll-gitbook theme leverages [jekyll-toc][4] to generate the *Contents* for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in `_config.yml`:
-
-```yaml
-toc:
-    enabled: true
-    h_min: 1
-    h_max: 3
-```
-
-## Google Analytics, etc.
-
-The jekyll-gitboook theme supports embedding the [Google Analytics][7], [CNZZ][8] and [Application Insights][9] website analytical tools with the following
-minimal configuration in `_config.yaml`:
-
-```yaml
-tracker:
-  google_analytics: "<YOUR GOOGLE ANALYTICS KEY, e.g, UA-xxxxxx-x>"
-```
-
-Similarly, CNZZ can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  cnzz: "<YOUR CNZZ ANALYTICS KEY, e.g., xxxxxxxx>"
-```
-
-Application Insights can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  application_insights: "<YOUR APPLICATION INSIGHTS CONNECTION STRING>"
-```
-
-## Disqus comments
-
-[Disqus](https://disqus.com/) comments can be enabled by adding the following configuration in `_config.yaml`:
-
-```yaml
-disqushandler: "<YOUR DISQUS SHORTNAME>"
-```
-
-## Extra StyleSheet or Javascript elements
-
-You can add extra CSS or JavaScript references using configuration collections:
-
-- extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_header_js: for additional scripts to be included in the `<head>` tag, after the `extra_css` has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-
-## Customizing font settings
-
-The fonts can be customized by modifying the `.book.font-family-0` and `.book.font-family-1` entry in [`./assets/gitbook/custom.css`][10],
-
-```css
-.book.font-family-0 {
-    font-family: Georgia, serif;
-}
-.book.font-family-1 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-```
-
-## Tips, Warnings and Dangers blocks
-
-The jekyll-gitbook theme supports customized kramdown attributes (`{: .block-tip }`, `{: .block-warning }`,
-`{: .block-danger }`) like that displayed in [the discord.js website][11]. The marker can be used like
-
-```markdown
-> ##### TIP
->
-> This guide is last tested with @napi-rs/canvas^0.1.20, so make sure you have
-> this or a similar version after installation.
-{: .block-tip }
-```
-
-Rendered page can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)
-
-## Cover image inside pages
-
-The jekyll-gitbook theme supports adding a cover image to a specific page by adding
-a `cover` field to the page metadata:
-
-```diff
-  ---
-  title: Page with cover image
-  author: Tao He
-  date: 2022-05-24
-  category: Jekyll
-  layout: post
-+ cover: /assets/jekyll-gitbook/dinosaur.gif
-  ---
-```
-
-The effect can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html)
-
-## Diagrams with mermaid.js
-
-This jekyll-theme supports [mermaid.js](https://mermaid.js.org/) to render diagrams
-in markdown.
-
-To enable the mermaid support, you need to set `mermaid: true` in the front matter
-of your post.
+front matter 아래에 일반 마크다운 문법으로 본문을 작성합니다.
 
 ```markdown
 ---
-mermaid: true
+title: Keycloak 설치 및 구성 매뉴얼
+author: Seong Gi
+date: 2026-02-25
+category: 시스템
+layout: post
+---
+
+## 개요
+Keycloak은 오픈소스 IAM 솔루션입니다.
+
+## 설치 방법
+1. Docker로 실행
+2. 초기 설정 진행
+
+코드 블록도 사용 가능:
+```
+
+### 4단계: git push
+
+```bash
+git add .
+git commit -m "새 글 추가: Keycloak 설치 매뉴얼"
+git push
+```
+
+push 하고 1~2분 정도 기다리면 https://seonggi.github.io 에 자동 반영됩니다.
+
+---
+
+## 현재 카테고리 목록
+
+사이드바에 표시되는 대분류 카테고리입니다.
+글의 front matter에서 `category` 값을 아래 중 하나로 맞추면 해당 그룹 아래에 표시됩니다.
+
+| category 값 | 용도 |
+|---|---|
+| GCP | Google Cloud Platform 관련 |
+| 시스템 | 시스템/인프라 관련 |
+| 달빛궁전 | 달빛궁전 관련 |
+
+### 새 카테고리 추가하는 법
+
+별도의 설정 파일 수정 없이, 새 글의 front matter에 새 category 값을 넣으면 자동으로 생깁니다.
+
+예를 들어 "보안" 카테고리를 새로 만들고 싶으면:
+
+```yaml
+---
+title: 방화벽 설정 가이드
+author: Seong Gi
+date: 2026-03-15
+category: 보안
+layout: post
 ---
 ```
 
-The example can be previewed from
+이렇게 글을 하나 push 하면 사이드바에 "보안" 카테고리가 자동 생성됩니다.
 
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html)
+---
 
-## License
+## 이미지 넣는 법
 
-This work is open sourced under the Apache License, Version 2.0.
+### 방법 1: 로컬 이미지 파일 사용
 
-Copyright 2019 Tao He.
+1. `assets/images/` 폴더에 이미지 파일을 넣습니다
+2. 글 안에서 아래처럼 참조합니다
 
-[1]: https://pages.github.com
-[2]: https://pages.github.com/themes
-[3]: https://github.com/sighingnow/jekyll-gitbook/fork
-[4]: https://github.com/allejo/jekyll-toc
-[5]: https://github.com/gitbook-plugins/gitbook-plugin-search-pro
-[6]: https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes
-[7]: https://analytics.google.com/analytics/web/
-[8]: https://www.cnzz.com/
-[9]: https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[10]: https://github.com/sighingnow/jekyll-gitbook/blob/master/gitbook/custom.css
-[11]: https://discordjs.guide/popular-topics/canvas.html#setting-up-napi-rs-canvas
-[12]: https://rubygems.org/gems/jekyll-remote-theme
-[13]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-[14]: https://github.com/sighingnow/jekyll-gitbook/blob/master/_config.yml
+```markdown
+![설명문구](/assets/images/파일이름.png)
+```
+
+### 방법 2: 외부 이미지 URL
+
+```markdown
+![설명문구](https://example.com/image.png)
+```
+
+---
+
+## 글 삭제하는 법
+
+`_posts/` 폴더에서 해당 .md 파일을 삭제하고 git push 하면 됩니다.
+
+```bash
+rm _posts/2026-02-25-gcp-start.md
+git add .
+git commit -m "글 삭제"
+git push
+```
+
+---
+
+## 파일 구조 요약
+
+```
+seonggi.github.io/
+├── _posts/          <- 블로그 글을 넣는 곳 (핵심!)
+├── _pages/          <- About, Contact 등 고정 페이지
+├── _config.yml      <- 사이트 전체 설정 (제목, 테마 등)
+├── assets/          <- 이미지, CSS, JS 등 정적 파일
+└── README.md        <- 이 파일
+```
+
+---
+
+## 자주 하는 실수
+
+- 파일 이름에 한글을 쓰면 안 됩니다 (영문과 숫자, 하이픈만 사용)
+- front matter (`---` 블록)가 빠지면 글이 표시되지 않습니다
+- date 형식이 틀리면 빌드 에러가 납니다 (YYYY-MM-DD 형식 지켜주세요)
+- category 값은 대소문자를 구분합니다 (GCP와 gcp는 별개 카테고리)
