@@ -2,8 +2,8 @@
 title: GCP Workload Identity Federation (WIF - 워크로드아이덴티티) 설정
 author: Seong Gi
 date: 2026-02-26
-category: GCP
-layout: post
+categories: [Cloud, GCP]
+tags: [gcp, wif, keycloak, oidc, security]
 ---
 
 ## GCP Workload Identity Federation (WIF - 워크로드아이덴티티) 설정  
