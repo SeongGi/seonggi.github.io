@@ -40,6 +40,11 @@ avatar:
 
 toc: true
 
+plugins:
+  - jekyll-archives
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 comments:
   provider:
 
