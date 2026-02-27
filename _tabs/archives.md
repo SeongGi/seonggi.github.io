@@ -1,5 +1,5 @@
 ---
-# the default layout is 'page'
+layout: archives
 icon: fas fa-archive
 order: 3
 ---
